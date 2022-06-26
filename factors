@@ -1,25 +1,31 @@
 #!/usr/bin/python3
-""" RSA Laboratories states that: for 
-each RSA number n, there exist prime
-numbers p and q such that
-n = p * q
-"""
-from sys import argv
-def rsa(value):
-    i = 2
-    if (value < 2):
-        return
-    while value % i:
-        i += 2
-        print("{:.0f} = {:.0f} * {:.0f}".format(value, value // i, i))
-if len(argv) != 2:
-    exit()
-try:
-    with open(argv[1]) as file:
-        line = file.readline()
-        while line != "":
-            value = int(line.split('\n'[0]))
-            rsa(value)
-            line = file.readline()
-except:
-    pass
+import sys
+
+
+# fn unpack number factorial
+def fc():
+    """
+    function fc to search file to convert number and format n = p * q
+    """
+    try:
+        revfile = sys.argv[1]
+        with open(revfile) as f:
+            for prime_num in f:
+                prime_num = int(prime_num)
+                if prime_num % 2 == 0:
+                        print("{}={}*{}".format(prime_num, prime_num // 2, 2))
+                        continue
+                i = 3
+                while i < prime_num // 2:
+                    if prime_num % i == 0:
+                        print("{}={}*{}".format(prime_num, prime_num // i, i))
+                        break
+                    i = i + 2
+                if i == (prime_num // 2) + 1:
+                    print("{}={}*{}".format(prime_num, prime_num, 1))
+    except (IndexError):
+        pass
+
+
+# auto start
+fc()
