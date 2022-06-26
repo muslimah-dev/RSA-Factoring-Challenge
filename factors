@@ -19,8 +19,9 @@ def factorial():
                     if i % n == 0:
                         print("{} = {} * {}".format(i, n, i // n))
                         break
-
+                    n = n + 2
+                if n == div + 1:
+                    print("{}={}*{}".format(i, i, 1))
     except(IndexError):
         pass
 factorial()
-
