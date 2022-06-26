@@ -1,0 +1,19 @@
+#!/usr/bin/python3
+""" Factorize as many numbers as possible into a product of two smaller numbers."""
+import sys
+
+def factorial():
+    """defines a function called factorial"""
+
+    try:
+        temp = sys.argv[1]
+        with open(temp) as file_object:
+            for i in file_object:
+                i = int(i)
+                if i % 2 == 0:
+                    print("{} = {} * {}".format(i, 2, i // 2))
+
+    except(IndexError):
+        pass
+factorial()
+
