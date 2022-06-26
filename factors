@@ -12,6 +12,13 @@ def factorial():
                 i = int(i)
                 if i % 2 == 0:
                     print("{} = {} * {}".format(i, 2, i // 2))
+                    continue
+                n = 3
+                div = i // 2
+                while n < div:
+                    if i % n == 0:
+                        print("{} = {} * {}".format(i, n, i // n))
+                        break
 
     except(IndexError):
         pass
