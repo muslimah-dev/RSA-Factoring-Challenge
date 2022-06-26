@@ -3,25 +3,23 @@
 import sys
 
 def factorial():
-    """defines a function called factorial"""
-
     try:
         temp = sys.argv[1]
-        with open(temp) as file_object:
-            for i in file_object:
-                i = int(i)
-                if i % 2 == 0:
-                    print("{} = {} * {}".format(i, 2, i // 2))
-                    continue
-                n = 3
-                div = i // 2
-                while n < div:
-                    if i % n == 0:
-                        print("{} = {} * {}".format(i, n, i // n))
+        with open(temp) as f:
+            for prime_ in f:
+                prime_ = int(prime_)
+                if prime_ % 2 == 0:
+                        print("{}={}*{}".format(prime_, prime_ // 2, 2))
+                        continue
+                i = 3
+                while i < prime_ // 2:
+                    if prime_ % i == 0:
+                        print("{}={}*{}".format(prime_, prime_ // i, i))
                         break
-                    n = n + 2
-                if n == div + 1:
-                    print("{}={}*{}".format(i, i, 1))
-    except(IndexError):
+                    i = i + 2
+                if i == (prime_ // 2) + 1:
+                    print("{}={}*{}".format(prime_, prime_, 1))
+    except (IndexError):
         pass
+
 factorial()
