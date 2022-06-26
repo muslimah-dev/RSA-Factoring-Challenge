@@ -1,25 +1,25 @@
 #!/usr/bin/python3
-""" Factorize as many numbers as possible into a product of two smaller numbers."""
-import sys
-
-def factorial():
-    try:
-        temp = sys.argv[1]
-        with open(temp) as f:
-            for prime_ in f:
-                prime_ = int(prime_)
-                if prime_ % 2 == 0:
-                        print("{}={}*{}".format(prime_, prime_ // 2, 2))
-                        continue
-                i = 3
-                while i < prime_ // 2:
-                    if prime_ % i == 0:
-                        print("{}={}*{}".format(prime_, prime_ // i, i))
-                        break
-                    i = i + 2
-                if i == (prime_ // 2) + 1:
-                    print("{}={}*{}".format(prime_, prime_, 1))
-    except (IndexError):
-        pass
-
-factorial()
+""" RSA Laboratories states that: for 
+each RSA number n, there exist prime
+numbers p and q such that
+n = p * q
+"""
+from sys import argv
+def rsa(value):
+    i = 2
+    if (value < 2):
+        return
+    while value % i:
+        i += 2
+        print("{:.0f} = {:.0f} * {:.0f}".format(value, value // i, i))
+if len(argv) != 2:
+    exit()
+try:
+    with open(argv[1]) as file:
+        line = file.readline()
+        while line != "":
+            value = int(line.split('\n'[0]))
+            rsa(value)
+            line = file.readline()
+except:
+    pass
