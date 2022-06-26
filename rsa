@@ -1,0 +1,33 @@
+#!/usr/bin/python3
+"""
+Factorize as many numbers as possible into a product of two smaller numbers.
+"""
+import sys
+
+
+# factorial
+def factorial():
+    """
+    function that defines n=p*q"""
+    try:
+        temp = sys.argv[1]
+        with open(temp) as f:
+            for prime_ in f:
+                prime_ = int(prime_)
+                if prime_% 2 == 0:
+                        print("{}={}*{}".format(prime_, prime_ // 2, 2))
+                        continue
+                i = 3
+                while i < prime_ // 2:
+                    if prime_ % i == 0:
+                        print("{}={}*{}".format(prime_, prime_ // i, i))
+                        break
+                    i = i + 2
+                if i == (prime_ // 2) + 1:
+                    print("{}={}*{}".format(prime_, prime_, 1))
+    except (IndexError):
+        pass
+
+
+# autostart
+factorial()
